@@ -1,0 +1,23 @@
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+      90deg,
+    rgba(20, 159, 255, 1) 0%,
+    rgba(17, 122, 255, 1) 100%
+    );
+    color: white;
+    height: 100%;
+    margin: 0 5px;
+    width: 100px;
+    border-radius: 5px;
+}
+
+.item:hover {
+  background: linear-gradient(
+    90deg,
+  rgba(255, 118, 20, 1) 0%,
+    rgba(255, 84, 17, 1) 100%
+  );
+}
