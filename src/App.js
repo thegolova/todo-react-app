@@ -49,7 +49,8 @@ class App extends Component {
         done: true,
         delete: true
       }
-    ]
+    ],
+    nav : "active"
 }
 
 handleMarkTask = (id) => {
@@ -85,7 +86,6 @@ handleDeleteTask = (id) => {
     }));
 }
 
-
 handleAddTask = (task) => {
   let newId = 0;
   if (this.state.tasks.length !== 0) {
@@ -104,25 +104,41 @@ handleAddTask = (task) => {
   }))
 }
 
-componentDidMount() {
-  console.log(this.state.tasks.length)
+handleNavTask = (action) => {
+  switch (action) {
+    case 'all' : 
+      return this.setState({nav : "all"});
+    case 'active' : 
+      return this.setState({nav : "active"});
+    case 'done' : 
+      return this.setState({nav : "done"});
+    default :
+      return this.setState({nav : "all"});
+  }
 }
 
 componentDidUpdate() {
-  console.log(this.state);
+  console.log(this.state)
 }
 
 render() {
+    let todos = {};
+    if (this.state.nav === 'all') {
+      todos = this.state.tasks;
+    } else if (this.state.nav === 'active') {
+      todos = this.state.tasks.filter(task => task.done === false)
+    }
+    console.log(todos);
     
-    window.store = this.state;
     return (
       <div className="App">
-        <NavTasks />
+        <NavTasks handleNavTask={this.handleNavTask}/>
         <AddTask
           handleAddTask={this.handleAddTask}
         />
         <Tasks 
-          state={this.state}
+          /* state={this.state.tasks} */
+          state={todos}
           handleMarkTask={this.handleMarkTask}
           handleDoneTask={this.handleDoneTask}
           handleDeleteTask={this.handleDeleteTask}
