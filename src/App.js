@@ -1,4 +1,5 @@
 import './App.css';
+import SearchTask from './Components/SearchTask';
 import AddTask from './Components/AddTask';
 import Tasks from './Components/Tasks';
 import NavTasks from './Components/NavTasks';
@@ -50,7 +51,7 @@ class App extends Component {
         delete: true
       }
     ],
-    nav : "active"
+    nav : "all"
 }
 
 handleMarkTask = (id) => {
@@ -118,7 +119,7 @@ handleNavTask = (action) => {
 }
 
 componentDidUpdate() {
-  console.log(this.state)
+  console.log('update')
 }
 
 render() {
@@ -127,17 +128,19 @@ render() {
       todos = this.state.tasks;
     } else if (this.state.nav === 'active') {
       todos = this.state.tasks.filter(task => task.done === false)
+    } else if (this.state.nav === 'done') {
+      todos = this.state.tasks.filter(task => task.done === true)
     }
     console.log(todos);
-    
+
     return (
       <div className="App">
+        <SearchTask />
         <NavTasks handleNavTask={this.handleNavTask}/>
         <AddTask
           handleAddTask={this.handleAddTask}
         />
         <Tasks 
-          /* state={this.state.tasks} */
           state={todos}
           handleMarkTask={this.handleMarkTask}
           handleDoneTask={this.handleDoneTask}

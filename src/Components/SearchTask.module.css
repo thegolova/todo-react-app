@@ -1,0 +1,26 @@
+.header {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
+.logo {
+  height: 35px;
+  margin-right: 10px;
+}
+
+.search {
+  width: 100%;
+  height: 35px;
+  font-size: 18px;
+}
+
+.search::placeholder {
+  background-image: url(../search.svg);
+  background-repeat: no-repeat;
+  background-position: 5px;
+  background-size: contain;
+  padding-left: 35px;
+  font-size: 18px;
+}
