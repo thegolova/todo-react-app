@@ -15,7 +15,7 @@ class AddTask extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         const task = this.state.value;
-        if (task != "" && task != null) {
+        if (task !== "" && task != null) {
             this.props.handleAddTask(task);
             this.setState({
                 value: ""

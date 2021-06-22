@@ -89,7 +89,7 @@ handleDeleteTask = (id) => {
 
 handleAddTask = (task) => {
   let newId = 0;
-  if (this.state.tasks.length != 0) {
+  if (this.state.tasks.length !== 0) {
     newId = this.state.tasks[this.state.tasks.length - 1].id + 1;
   }
   this.setState(prevState => ({
