@@ -2,14 +2,23 @@ import { Component } from "react";
 import Task from './Task';
 
 class Tasks extends Component {
-    state = this.props.state;
+    /* constructor(props) {
+        super(props);
+        this.state = this.props.state;
+    } */
+
+    componentDidUpdate() {
+        console.log("update Tasks");
+    }
 
     render() {
         window.store = this.state;
+        console.log(this.state)
         return (
             <div>
                 {
-                    this.state.map(item => (
+                    /* this.state.map(item => ( */
+                    this.props.state.map(item => (
                         <Task 
                             key={item.id}
                             task={item}

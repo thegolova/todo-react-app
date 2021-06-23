@@ -119,10 +119,11 @@ handleNavTask = (action) => {
 }
 
 componentDidUpdate() {
-  console.log('update')
+  console.log('update App')
 }
 
 render() {
+
     let todos = {};
     if (this.state.nav === 'all') {
       todos = this.state.tasks;
