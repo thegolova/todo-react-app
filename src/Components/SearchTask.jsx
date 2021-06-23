@@ -3,7 +3,20 @@ import style from './SearchTask.module.css';
 import logo from '../logo.png';
 
 class SearchTask extends Component {
+  state = {
+    value: ""
+  }
+
+  handleChange = (event) => {
+    /* console.log(event.target.value); */
+    this.setState({
+      value : event.target.value
+    });
+    this.props.hadnleSearch(event.target.value.toLowerCase())
+  }
+
   render() {
+    /* console.log(this.state) */
     return (
       <div className={style.header}>
         <img 
@@ -15,6 +28,7 @@ class SearchTask extends Component {
           type='text'
           className={style.search}
           placeholder="Search"
+          onChange={this.handleChange}
         />
       </div>
     )

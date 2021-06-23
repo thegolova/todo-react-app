@@ -12,8 +12,6 @@ class Tasks extends Component {
     }
 
     render() {
-        window.store = this.state;
-        console.log(this.state)
         return (
             <div>
                 {

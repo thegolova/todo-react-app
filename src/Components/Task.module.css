@@ -52,14 +52,17 @@
 
   .star {
     width: 20px;
+    height: 20px;
   }  
 
   .done {
     width: 20px;
+    height: 20px;
     margin: 0 10px;
   }
 
   .del {
+    height: 20px;
     width: 20px;
   }
 
