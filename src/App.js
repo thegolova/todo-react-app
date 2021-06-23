@@ -6,7 +6,11 @@ import NavTasks from './Components/NavTasks';
 import { Component } from 'react';
 
 class App extends Component {
-  state = {
+  state = {};
+
+constructor(props) {
+  super(props);
+  this.state = {
     tasks: [
       {
         id: 0,
@@ -53,6 +57,7 @@ class App extends Component {
     ],
     nav: "all",
     search: ""
+  }
 }
 
 handleMarkTask = (id) => {
