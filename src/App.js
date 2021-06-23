@@ -6,57 +6,16 @@ import NavTasks from './Components/NavTasks';
 import { Component } from 'react';
 
 class App extends Component {
-  state = {};
+  state = {
+    tasks: [],
+    nav: "all",
+    search: ""
+  }
 
 constructor(props) {
   super(props);
-  this.state = {
-    tasks: [
-      {
-        id: 0,
-        value: "Позвонить в типографию",
-        starred: false,
-        done: false,
-        delete: true
-      },
-      {
-        id: 1,
-        value: "Закупить товар",
-        starred: false,
-        done: false,
-        delete: true
-      },
-      {
-        id: 2,
-        value: "Направить договор в юр. отдел",
-        starred: false,
-        done: false,
-        delete: true
-      },
-      {
-        id: 3,
-        value: "Сделать пост про котов",
-        starred: false,
-        done: false,
-        delete: true
-      },
-      {
-        id: 4,
-        value: "Написать тексты в 5 форматах",
-        starred: false,
-        done: false,
-        delete: true
-      },
-      {
-        id: 5,
-        value: "Найти площадки для размещения",
-        starred: false,
-        done: false,
-        delete: true
-      }
-    ],
-    nav: "all",
-    search: ""
+  if (localStorage.getItem("TASKS") !== null) {
+    this.state = JSON.parse(localStorage.getItem("TASKS"));
   }
 }
 
@@ -156,6 +115,8 @@ componentDidMount() {
 
 componentDidUpdate() {
   console.log('update App')
+  localStorage.removeItem('TASKS');
+  localStorage.setItem('TASKS', JSON.stringify(this.state));
 }
 
 render() {

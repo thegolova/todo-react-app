@@ -4,13 +4,17 @@ import { Component } from "react";
 class AddTask extends Component {
     state = {
         value: ""
-    }
+    };
     
     handleTextAreaChange = (event) => {
+        if (event.code === 'Enter') {
+            event.preventDefault();
+            alert('enter')
+        }
         this.setState( {
             value: event.target.value
         });
-    }
+    };
 
     handleSubmit = (event) => {
         event.preventDefault();
@@ -21,7 +25,13 @@ class AddTask extends Component {
                 value: ""
             });
         }
-    }
+    };
+
+    handleEnterPress = (event) => {
+        if (event.keyCode === 13) {
+            this.handleSubmit(event);
+        }
+    };
 
     render() {
         return (
@@ -29,6 +39,7 @@ class AddTask extends Component {
                 <form 
                     className={style.addTask}
                     onSubmit= {this.handleSubmit}
+                    onKeyUp= {this.handleEnterPress}
                 >
                     <textarea 
                         className={style.textArea}
@@ -44,7 +55,7 @@ class AddTask extends Component {
                 </form>
             </div>
         )
-    }
+    };
 }
 
 export default AddTask;
