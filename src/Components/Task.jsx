@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import style from './Task.module.css';
-import {ReactComponent as DelIcon} from '../delete1.svg';
-import {ReactComponent as StarredIcon} from '../star1.svg';
+import {ReactComponent as DelIcon} from '../delete.svg';
+import {ReactComponent as StarredIcon} from '../star.svg';
 import {ReactComponent as DoneIcon} from '../done.svg';
 import {ReactComponent as MarkIcon} from '../mark.svg';
 
@@ -19,11 +19,10 @@ class Task extends Component {
     }
 
     render() {
-        const isDelete = this.props.task.delete;
         const isDone = this.props.task.done;
         const isStarred = this.props.task.starred;
 
-        return isDelete && (
+        return (
             <div className={style.item}> 
                 {isStarred && <MarkIcon className={style.done_task}/>}
                 <span className={`

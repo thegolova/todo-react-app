@@ -12,6 +12,8 @@
     margin: 0 5px;
     width: 100px;
     border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .item:hover {
@@ -29,4 +31,10 @@
     rgba(255, 118, 20, 1) 0%,
     rgba(255, 84, 17, 1) 100%
   );
+}
+
+@media (max-width: 360px) {
+  .item {
+    flex-basis: 33%;
+  }
 }

@@ -1,6 +1,6 @@
 import { Component } from "react";
 import style from './SearchTask.module.css';
-import logo from '../logo4.png';
+import logo from '../logo.png';
 
 class SearchTask extends Component {
   state = {
@@ -8,7 +8,6 @@ class SearchTask extends Component {
   }
 
   handleChange = (event) => {
-    /* console.log(event.target.value); */
     this.setState({
       value : event.target.value
     });
@@ -16,7 +15,6 @@ class SearchTask extends Component {
   }
 
   render() {
-    /* console.log(this.state) */
     return (
       <div className={style.header}>
         <img 

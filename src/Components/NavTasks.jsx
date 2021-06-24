@@ -11,10 +11,6 @@ class NavTasks extends Component {
         this.setState({page: value})
     }
 
-    componentDidUpdate() {
-        console.log(this.state.page)
-    }
-
     render() {
         return (
             <div className={style.nav}>

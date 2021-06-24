@@ -42,14 +42,6 @@ handleDoneTask = (id) => {
 }
 
 handleDeleteTask = (id) => {
-    /* this.setState((state) => ({
-        tasks: state.tasks.map(item=> {
-            if (item.id === id) {
-                item.delete = false;
-            }
-            return item;
-        })
-    })); */
     this.setState((state) => ({
       tasks: state.tasks.filter(item => item.id !== id)
     }))
@@ -66,8 +58,7 @@ handleAddTask = (task) => {
         id: newId,
         value: task,
         starred: false,
-        done: false,
-        delete: true
+        done: false
       }
     ]
   }))
@@ -106,19 +97,10 @@ getTodos = () => {
   } else if (this.state.nav === 'done') {
     todos = getSearchTasks.filter(task => task.done === true)
   }
-  /* console.log(todos); */
   return todos;
 }
 
-
-componentDidMount() {
-  /* console.log('mount App'); */
-}
-
-
 componentDidUpdate() {
-  console.log(this.state)
-  /* console.log('update App') */
   localStorage.removeItem('TASKS');
   localStorage.setItem('TASKS', JSON.stringify(this.state));
 }
