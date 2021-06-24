@@ -42,14 +42,17 @@ handleDoneTask = (id) => {
 }
 
 handleDeleteTask = (id) => {
-    this.setState((state) => ({
+    /* this.setState((state) => ({
         tasks: state.tasks.map(item=> {
             if (item.id === id) {
                 item.delete = false;
             }
             return item;
         })
-    }));
+    })); */
+    this.setState((state) => ({
+      tasks: state.tasks.filter(item => item.id !== id)
+    }))
 }
 
 handleAddTask = (task) => {
@@ -109,12 +112,13 @@ getTodos = () => {
 
 
 componentDidMount() {
-  console.log('mount App');
+  /* console.log('mount App'); */
 }
 
 
 componentDidUpdate() {
-  console.log('update App')
+  console.log(this.state)
+  /* console.log('update App') */
   localStorage.removeItem('TASKS');
   localStorage.setItem('TASKS', JSON.stringify(this.state));
 }
@@ -124,7 +128,7 @@ render() {
     return (
       <div className="App">
         <SearchTask hadnleSearch={this.hadnleSearch}/>
-        <NavTasks handleNavTask={this.handleNavTask}/>
+        <NavTasks handleNavTask={this.handleNavTask} nav={this.state.nav}/>
         <AddTask
           handleAddTask={this.handleAddTask}
         />

@@ -1,6 +1,6 @@
 import { Component } from "react";
 import style from './SearchTask.module.css';
-import logo from '../logo.png';
+import logo from '../logo4.png';
 
 class SearchTask extends Component {
   state = {
