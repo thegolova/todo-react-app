@@ -106,7 +106,6 @@ componentDidUpdate() {
 }
 
 render() {
-    console.log(this.state.search)
     return (
       <div className="App">
         <SearchTask hadnleSearch={this.hadnleSearch}/>
